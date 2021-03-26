@@ -1,0 +1,22 @@
+.modal.fade {
+  display: flex !important;
+  justify-content: center;
+  align-items: center; }
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: 1 0 auto; }
+  .content .headerLogo img {
+    width: 18.75em;
+    height: 18.75em; }
+  .content .username, .content .password {
+    width: 9.375em; }
+  .content .buttonGroups {
+    display: flex; }
+    .content .buttonGroups button {
+      margin: 10px 15px; }
+
+/*# sourceMappingURL=login.css.map */

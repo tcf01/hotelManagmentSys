@@ -1,0 +1,60 @@
+@import "../../common.scss";
+
+.hotelDetailWrapper {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 185px;
+
+  height: 100%;
+  width: 100%;
+  flex-direction: row;
+
+  .leftSection, .rightSection {
+    width: 40%;
+    min-width: 400px;
+  }
+}
+
+.leftSection {
+  user-select: none;
+}
+
+.rightSection {
+  display: flex;
+  min-width: 350px;
+  //margin-top: 40*$em;
+  //margin-left: 30*$em;
+  //margin-left: 30%;
+  //align-items: center;
+
+  .errorMsg {
+    color: red;
+    font-size: 12*$em;
+    user-select: none;
+  }
+
+  .names {
+    margin-bottom: 30px;
+
+    .chiName {
+      font-size: 45*$em;
+      color: $blue_color;
+      font-weight: bold;
+    }
+
+    .engName {
+      font-size: 20*$em;
+      color: #00529C;
+      margin-left: 5px;
+    }
+  }
+
+  .contactSection {
+    margin-bottom: 30px;
+  }
+
+  .classes {
+    margin-bottom: 30px;
+  }
+}
+

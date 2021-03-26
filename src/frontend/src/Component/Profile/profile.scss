@@ -1,0 +1,11 @@
+.profileWrapper {
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+
+
+  .sidebar {
+    border-right: 2px solid black;
+    height: 100%;
+  }
+}

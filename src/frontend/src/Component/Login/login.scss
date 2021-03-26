@@ -1,0 +1,35 @@
+$em: 1em/16;
+
+
+.modal.fade {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: 1 0 auto;
+
+  .headerLogo {
+    img {
+      width: 300*$em;
+      height: 300*$em;
+    }
+  }
+
+  .username, .password {
+    width: 150*$em;
+  }
+
+  .buttonGroups {
+    display: flex;
+
+    button {
+      margin: 10px 15px;
+    }
+  }
+}

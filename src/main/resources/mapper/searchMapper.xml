@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.hotelmanagementsys.hotelmang.dao.SearchMapper">
+    <resultMap id="BaseResultMap" type="Hotel">
+        <id property="id" column="id"/>
+        <result property="chiName" column="chiName"/>
+        <result property="engName" column="engName"/>
+        <result property="telephone" column="telephone"/>
+
+        <collection property="classes" ofType="Class" javaType="List">
+            <id property="id" column="class_id"/>
+            <result property="hotelId" column="hotelId"/>
+            <result property="className" column="className"/>
+            <result property="isActivate" column="isActivate"/>
+            <result property="totalRoom" column="totalRoom"/>
+            <result property="availableRoom" column="availableRoom"/>
+
+            <collection property="bookingRecords" column="id" ofType="BookingRecord" javaType="List">
+                <result property="id" column="id"/>
+                <result property="userId" column="userId"/>
+                <result property="classId" column="classId"/>
+                <result property="date" column="date"/>
+                <result property="isActivate" column="isActivate"/>
+            </collection>
+        </collection>
+    </resultMap>
+
+    <resultMap id="getHotelByIdResultMap" type="BookingRecord">
+        <id property="id" column="id"/>
+        <result property="userId" column="userId"/>
+        <result property="classId" column="classId"/>
+        <result property="date" column="date"/>
+        <result property="date" column="date"/>
+        <collection property="classes" column="id" ofType="Class" javaType="List">
+            <id property="id" column="class_id"/>
+            <result property="hotelId" column="hotelId"/>
+            <result property="className" column="className"/>
+            <collection property="hotels" javaType="List" ofType="Hotel">
+                <result property="id" column="id"/>
+                <result property="userId" column="userId"/>
+                <result property="classId" column="classId"/>
+                <result property="date" column="date"/>
+                <result property="isActivate" column="isActivate"/>
+            </collection>
+        </collection>
+    </resultMap>
+
+    <select id="getHotelById" resultMap="BaseResultMap">
+        SELECT hotels.*,
+        classes.id as class_id,
+        classes.hotelId, classes.className,classes.totalRoom,classes.availableRoom,
+        booking_records.* FROM hotels
+        LEFT JOIN classes ON (classes.hotelId = hotels.id)
+        LEFT JOIN booking_records ON ( booking_records.classId = classes.id )
+        WHERE hotels.id = #{id}
+    </select>
+
+    <select id="filterHotel" resultMap="BaseResultMap">
+        SELECT hotels.*,
+        classes.id as class_id,
+        classes.hotelId, classes.className,classes.totalRoom,classes.availableRoom,
+        booking_records.* FROM hotels
+        LEFT JOIN classes ON (classes.hotelId = hotels.id)
+        LEFT JOIN booking_records ON ( booking_records.classId = classes.id )
+        WHERE booking_records.date BETWEEN #{startDate} AND #{endDate}
+    </select>
+
+    <select id="getAllBookingRecordsByUserId" resultMap="getHotelByIdResultMap">
+        SELECT hotels.*,
+        classes.id as class_id,
+        classes.hotelId, classes.className,
+        booking_records.* FROM booking_records
+        LEFT JOIN classes ON (booking_records.classId = classes.id)
+        LEFT JOIN hotels ON ( hotels.id = classes.hotelId )
+        WHERE booking_records.userId = #{id}
+    </select>
+
+</mapper>
+

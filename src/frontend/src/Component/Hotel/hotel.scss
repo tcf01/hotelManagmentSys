@@ -1,0 +1,190 @@
+@import "../../common.scss";
+
+.swiper-container {
+  position: relative;
+
+  .swiper-slide {
+    width: 100%;
+    height: 80vh;
+    background-color: black;
+    color: white;
+
+    img {
+      width: 100%;
+      height: 100%;
+      position: relative;
+
+
+      &::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        //background-color: rgba(0, 0, 0, 0.3);
+        background-color: green;
+        color: white;
+        top: 0;
+        left: 0;
+        z-index: 10;
+      }
+    }
+  }
+}
+
+.upperSection {
+  position: relative;
+  max-width: 2000px;
+
+  .blackLayer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.35);
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+
+  .searchSection {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    top: 50%;
+    left: 50%;
+    color: white;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+
+    .date {
+      display: flex;
+
+      input {
+        border-radius: 10px;
+        border: none;
+        box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.3);
+        background-color: white;
+      }
+
+
+      div {
+        margin-left: 20* $em;
+        margin-right: 20* $em;
+      }
+    }
+
+    .location {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      margin-top: 15px;
+
+      input {
+        border-radius: 10px;
+        border: none;
+        box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.3);
+        background-color: white;
+      }
+
+      button {
+        margin-left: 20px;
+        background-color: white;
+        color: black;
+        padding: 5px;
+        border-radius: 5px;
+        border: none;
+        box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.3)
+      }
+    }
+  }
+}
+
+.recommendSectionWrapper {
+  max-width: 1080px;
+
+  .resultSection {
+    display: flex;
+    flex-direction: column;
+    margin: 50px;
+  }
+}
+
+.searchSectionWrapper {
+  .resultSection {
+    display: flex;
+    flex-direction: column;
+    margin: 50px;
+
+    .hotelResults {
+      //border: 1px solid black;
+      display: flex;
+
+      .hotelWrapper {
+        position: relative;
+        margin: 10*$em 25*$em;
+
+        .c {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+          padding: 50px;
+          //position: absolute;
+          width: 250px;
+          height: 250px;
+          cursor: pointer;
+          border-radius: 10px;
+          box-shadow: 0 3px 3px 3px rgba(0, 0, 0, 0.3);
+          will-change: transform, opacity;
+
+          &.front {
+            img {
+              width: 150px;
+              height: 150px;
+              background-size: cover;
+            }
+
+            .basicInfo {
+              .contactInfo {
+                .chiName {
+                  font-size: 25*$em;
+                }
+
+                .engName {
+                  font-size: 20*$em;
+                }
+              }
+            }
+          }
+
+          &.back {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-direction: column;
+            font-size: 20* $em;
+
+            .telephoneSection {
+              display: flex;
+              white-space: nowrap;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.carouselWrapper {
+  margin-top: 50*$em;
+
+  .carouselEachItemContainer {
+    margin: 0px 30*$em;
+
+    .carouselPicture {
+      width: 100%;
+      user-select: none;
+    }
+  }
+}

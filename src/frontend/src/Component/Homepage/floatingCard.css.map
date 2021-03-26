@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AACA,eAAgB;EAGd,UAAU,EAAE,eAAe;EAC3B,WAAW,EAAE,SAAS;EACtB,gBAAgB,EAAE,sBAAsB",
+"sources": ["floatingCard.scss"],
+"names": [],
+"file": "floatingCard.css"
+}

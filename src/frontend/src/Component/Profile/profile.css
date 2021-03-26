@@ -1,0 +1,9 @@
+.profileWrapper {
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly; }
+  .profileWrapper .sidebar {
+    border-right: 2px solid black;
+    height: 100%; }
+
+/*# sourceMappingURL=profile.css.map */

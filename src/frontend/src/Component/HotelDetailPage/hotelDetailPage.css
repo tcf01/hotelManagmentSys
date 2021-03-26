@@ -1,0 +1,37 @@
+.hotelDetailWrapper {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 185px;
+  height: 100%;
+  width: 100%;
+  flex-direction: row; }
+  .hotelDetailWrapper .leftSection, .hotelDetailWrapper .rightSection {
+    width: 40%;
+    min-width: 400px; }
+
+.leftSection {
+  user-select: none; }
+
+.rightSection {
+  display: flex;
+  min-width: 350px; }
+  .rightSection .errorMsg {
+    color: red;
+    font-size: 0.75em;
+    user-select: none; }
+  .rightSection .names {
+    margin-bottom: 30px; }
+    .rightSection .names .chiName {
+      font-size: 2.8125em;
+      color: #00539CFF;
+      font-weight: bold; }
+    .rightSection .names .engName {
+      font-size: 1.25em;
+      color: #00529C;
+      margin-left: 5px; }
+  .rightSection .contactSection {
+    margin-bottom: 30px; }
+  .rightSection .classes {
+    margin-bottom: 30px; }
+
+/*# sourceMappingURL=hotelDetailPage.css.map */

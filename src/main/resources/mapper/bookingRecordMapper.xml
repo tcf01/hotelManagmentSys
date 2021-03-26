@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.hotelmanagementsys.hotelmang.dao.BookingRecordsMapper">
+    <resultMap id="getHotelByIdResultMap" type="BookingRecord">
+        <id property="id" column="id"/>
+        <result property="userId" column="userId"/>
+        <result property="classId" column="classId"/>
+        <result property="date" column="date"/>
+
+        <collection property="classes" column="id" ofType="Class" javaType="List">
+            <id property="id" column="class_id"/>
+            <result property="hotelId" column="hotelId"/>
+            <result property="className" column="className"/>
+
+            <collection property="hotels" column="id" javaType="List" ofType="Hotel">
+                <id property="id" column="hotel_id"/>
+                <result property="chiName" column="chiName"/>
+                <result property="engName" column="engName"/>
+                <result property="telephone" column="telephone"/>
+            </collection>
+        </collection>
+    </resultMap>
+
+    <select id="getAllBookingRecordsByUserId" resultMap="getHotelByIdResultMap">
+        SELECT booking_records.id, booking_records.userId, booking_records.classId, booking_records.date,
+        classes.id as class_id, classes.hotelId, classes.className,
+        hotels.id as hotel_id, hotels.chiName, hotels.engName, hotels.telephone FROM booking_records
+        LEFT JOIN classes ON (classes.id = booking_records.classId) LEFT JOIN hotels ON (hotels.id = classes.hotelId)
+        WHERE booking_records.userId = #{id}
+        ORDER BY booking_records.date ASC
+    </select>
+
+</mapper>
+
